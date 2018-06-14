@@ -1,8 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import 'bootstrap';
+import AppRouter from './routes/AppRouter';
+import './styles/style.scss';
 
 const App = () => (
-  <div>App</div>
+  <AppRouter />
 );
 
 ReactDOM.render(
