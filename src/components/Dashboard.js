@@ -1,9 +1,8 @@
 import React from 'react';
+import ReportsGeneratorForm from './ReportsGeneratorForm';
 
 const Dashboard = () => (
-  <div>
-    <h1>Prueba</h1>
-  </div>
+  <ReportsGeneratorForm />
 );
 
 export default Dashboard;
