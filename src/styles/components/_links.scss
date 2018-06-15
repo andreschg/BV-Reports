@@ -1,0 +1,12 @@
+#register-form-link,
+#login-form-link {
+  text-decoration: none;
+  cursor: pointer;
+  color: $green-gray;
+  font-size: $lg-size;
+  font-weight: bold;
+
+  &.active {
+    color: $green;
+  }
+}

@@ -17,7 +17,7 @@ const RegisterForm = ({ style }) => (
     </FormGroup>
     <Row>
       <Col md={6} mdOffset={3}>
-        <Button bsStyle="success" className="btn-full" type="submit" bsSize="large">Login</Button>
+        <Button bsStyle="success" className="btn-full" type="submit" bsSize="large">Register</Button>
       </Col>
     </Row>
   </Form>
