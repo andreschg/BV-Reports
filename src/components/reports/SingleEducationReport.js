@@ -2,7 +2,7 @@ import React from 'react';
 import { Panel } from 'react-bootstrap';
 import moment from 'moment';
 
-const SingleEducationReport = ({ school, degree, attended }) => {
+const SingleEducationReport = ({ school, degree, attended, keyId }) => {
   const startDate = moment(attended.start);
   const endDate = moment(attended.end);
   const format = 'MMMM YYYY';
@@ -13,7 +13,7 @@ const SingleEducationReport = ({ school, degree, attended }) => {
     messaage = `Since ${startDate.format(format)}`;
 
   return (
-    <Panel>
+    <Panel key={keyId}>
       <Panel.Heading>
         {messaage}
       </Panel.Heading>

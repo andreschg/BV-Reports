@@ -5,7 +5,7 @@ const BasicInformation = (props) => (
   <div>
     <Carousel controls={false}>
       {props.data.images.map((element, index) => (
-      <Carousel.Item className="profilePic-container">
+      <Carousel.Item key={`pic-${index}`} className="profilePic-container">
         <Image src={element.url} rounded responsive />
       </Carousel.Item>
       ))}
