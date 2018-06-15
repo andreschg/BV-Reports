@@ -5,6 +5,7 @@ import { connect } from 'react-redux';
 import BVNavigation from '../components/BVNavigation';
 import Dashboard from '../components/Dashboard';
 import PrivateRoute from './PrivateRoute';
+import SingleReport from '../components/SingleReport';
 
 const AppRouter = () => (
   <BrowserRouter>
@@ -14,6 +15,7 @@ const AppRouter = () => (
         <Grid md={12} >
           <Switch>
             <PrivateRoute path="/" component={Dashboard} exact={true}/>
+            <PrivateRoute path="/report" component={SingleReport} />
           </Switch>
         </Grid>
       </div>
@@ -23,8 +25,7 @@ const AppRouter = () => (
 
 const mapStateToProps = (state) => {
   return {
-    auth: state.authenticated,
-    currentUser: state.user
+    auth: state.authenticated
   }
 }
 

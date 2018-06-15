@@ -15,14 +15,18 @@ class ReportsGeneratorForm extends React.Component {
       email: e.target.value
     });
   }
+
+  onClick = (e) => {
+    e.preventDefault();
+    this.props.history.push(`report?email=${this.state.email}`);
+  }
   
   render() {
     return (
-      <Form id="generator-form" >
         <FormGroup>
           <InputGroup>
             <InputGroup.Button>
-              <Button>Generate Report</Button>
+              <Button onClick={this.onClick}>Generate Report</Button>
             </InputGroup.Button>
             <FormControl 
               type="email" 
@@ -30,7 +34,6 @@ class ReportsGeneratorForm extends React.Component {
               onChange={this.onChange}/>
           </InputGroup>
         </FormGroup>
-      </Form>
     );
   }
 }

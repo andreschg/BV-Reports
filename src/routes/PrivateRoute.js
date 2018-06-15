@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { Route } from 'react-router-dom';
+import { Route, withRouter } from 'react-router-dom';
 import BVLogin from '../components/BVLogin';
 
 export const PrivateRoute = ({ 
@@ -20,4 +20,4 @@ const mapStateToProps = (state) => ({
   isAuthenticated: !!state.user.email && !!state.user.password,
 });
 
-export default connect(mapStateToProps)(PrivateRoute);
+export default connect(mapStateToProps)(withRouter(PrivateRoute));
