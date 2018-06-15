@@ -6,7 +6,7 @@ const EducationReport = (props) => {
   return (
   <div>
     {props.education.map((element, index) => (
-      <SingleEducationReport key={`ed-${index}`} {...element} />
+      <SingleEducationReport keyId={`ed-${index}`} {...element} />
     ))}
   </div>
   )
