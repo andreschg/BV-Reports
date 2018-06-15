@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 import BVNavigation from '../components/BVNavigation';
 import Dashboard from '../components/Dashboard';
 import PrivateRoute from './PrivateRoute';
-import SingleReport from '../components/SingleReport';
+import SingleReport from '../components/reports/SingleReport';
 
 const AppRouter = () => (
   <BrowserRouter>

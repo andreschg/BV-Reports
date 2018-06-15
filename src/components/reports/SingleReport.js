@@ -1,7 +1,8 @@
 import React from 'react';
 import { Col, Row, Image } from 'react-bootstrap';
-import DataService from '../services/dataService';
+import DataService from '../../services/dataService';
 import BasicInformation from './BasicInformation';
+import AnotherInformation from './AnotherInformation';
 
 class SingleReport extends React.Component {
 
@@ -24,9 +25,15 @@ class SingleReport extends React.Component {
     return (
       <div>
         {this.state.data ? (
-          <Col md={3}>
-            <BasicInformation data={this.state.data} />
-          </Col>) : (
+          <div>
+            <Col md={3}>
+              <BasicInformation data={this.state.data} />
+            </Col>
+            <Col md={9}>
+              <AnotherInformation data={this.state.data} />
+            </Col>
+          </div>
+          ) : (
             <p>Loading...</p>
           ) }
       </div>
