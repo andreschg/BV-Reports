@@ -1,22 +1,22 @@
 import React from 'react';
 import { Navbar, Nav, NavItem  } from 'react-bootstrap';
+import UserOptions from './UserOption';
+import { connect } from 'react-redux';
 
-const BVNavigation = () => (
+const BVNavigation = (props) => (
   <Navbar>
     <Navbar.Header>
       <Navbar.Brand>
         <a href="">BV-Reports</a>
       </Navbar.Brand>
     </Navbar.Header>
-    <Nav>
-      <NavItem eventKey={1} href="#">
-        Link
-      </NavItem>
-      <NavItem eventKey={2} href="#">
-        Link
-      </NavItem>
-    </Nav>
+    { props.isAuthenticated && <UserOptions userName={props.userName} /> }
   </Navbar>
 );
 
-export default BVNavigation;
+const mapStateToProps = (state) => ({
+  isAuthenticated: !!state.user.email && !!state.user.password,
+  userName: state.user.name
+});
+
+export default connect(mapStateToProps)(BVNavigation);

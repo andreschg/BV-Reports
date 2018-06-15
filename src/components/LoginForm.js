@@ -10,7 +10,8 @@ class LoginForm  extends React.Component {
     super(props);
     this.state = {
       email: '',
-      pass: ''
+      pass: '',
+      errorMessage: ''
     }
   }
 
@@ -20,16 +21,22 @@ class LoginForm  extends React.Component {
     });
   }
 
-  onSubmit = () => {
+  onSubmit = (e) => {
+    e.preventDefault();
     const newUser = UserService.login(this.state.email, this.state.pass);
     if (newUser) {
       this.props.dispatch(userLogin(newUser));
+    } else {
+      this.setState({
+        errorMessage: 'Username or password are invalid'
+      })
     }
   }
   
   render() {
     return (
       <Form id="login-form" onSubmit={this.onSubmit} >
+        <p className="form-error-msg">{this.state.errorMessage}</p>
         <FormGroup>
           <FormControl 
             name="email" 

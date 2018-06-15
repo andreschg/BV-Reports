@@ -3,16 +3,21 @@ import * as PassHash from 'password-hash';
 export default class UserService {
   
   static login(email, password) {
-    let current = localStorage.getItem("currentUser");
     const account = JSON.parse(localStorage.getItem(email));
-    return PassHash.verify(password, account.password) ? {
-        email,
-        ...account
-      } : null;
+    if (account) {
+      if (PassHash.verify(password, account.password)) {
+        localStorage.setItem("currentUser", JSON.stringify({ email, password: account.password }));
+        return {
+          email,
+          ...account
+        }
+      }
+    }
+    return null;
   }
 
   static logout() {
-    localStorage.removeItem("currenUser");
+    localStorage.removeItem("currentUser");
   }
 
   static register({name, email, password}) {
@@ -23,6 +28,21 @@ export default class UserService {
     };
     localStorage.setItem(email, JSON.stringify(user));
     return this.login(email, password);
+  }
+
+  static auth() {
+    let current = JSON.parse(localStorage.getItem("currentUser"));
+    if (current) {
+      const account = JSON.parse(localStorage.getItem(current.email));
+      if (account && current.password === account.password) {
+        return {
+          email: current.email,
+          ...account
+        }
+      }
+    }
+    return null;
+    
   }
 
 }
