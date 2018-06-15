@@ -1,8 +1,11 @@
 import React from 'react';
 import { Form, FormGroup, FormControl, HelpBlock, Button, Row, Col } from 'react-bootstrap';
+import { connect } from 'react-redux';
 import * as EmailValidator from 'email-validator';
 import * as PassHash from 'password-hash';
-
+import UserService from '../services/user.service';
+import { userLogin } from '../store/actions/userActions';
+ 
 class RegisterForm extends React.Component {
 
   constructor(props) {
@@ -52,13 +55,15 @@ class RegisterForm extends React.Component {
   onSubmit = (e) => {  
     e.preventDefault();
     let current = localStorage.getItem(this.state.email);
-    if (current === null) {
-      const json = JSON.stringify({
+    if (!current) {
+      const newUser = UserService.register({ 
         name: this.state.name,
-        pass: PassHash.generate(this.state.pass),
-        reports: []
+        email: this.state.email,
+        password: this.state.pass 
       });
-      localStorage.setItem(this.state.email, json);
+      if (newUser) {
+        this.props.dispatch(userLogin(newUser));
+      }
     }
   }
 
@@ -113,4 +118,4 @@ class RegisterForm extends React.Component {
   }
 } 
 
-export default RegisterForm;
+export default connect()(RegisterForm);

@@ -3,11 +3,10 @@ const userDefaultState = {
 };
 
 export default (state = userDefaultState, action) => {
-
   switch (action.type) {
     case 'LOGIN':
       return { 
-        user: action.data
+        user: action.user
       };
     case 'LOGOUT':
       return userDefaultState;
