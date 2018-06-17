@@ -1,5 +1,6 @@
 import React from 'react';
 import { Row, Image, Col, Carousel } from 'react-bootstrap';
+import SocialLinks from './SocialLinks';
 
 const BasicInformation = (props) => (
   <div>
@@ -40,6 +41,8 @@ const BasicInformation = (props) => (
         </ul>
       </Col>
     </Row>
+    <Row>
+      </Row>
   </div>
 )
 

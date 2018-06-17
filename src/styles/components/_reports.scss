@@ -2,3 +2,19 @@
   background-color: $lightgray;
   height: 220px;
 }
+
+.social-link {
+  font-size: 25px;
+
+  .fa-facebook-square {
+    color: $facebook;
+  }
+
+  .fa-twitter-square {
+    color: $twitter;
+  }
+
+  .fa-linkedin {
+    color: $linkedin;
+  }
+}
