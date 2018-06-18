@@ -67,4 +67,4 @@ const mapStateToProps = (state) => ({
   username: state.user.email
 });
 
-export default connect(mapStateToProps)(withRouter(BasicInformation));
+export default withRouter(connect(mapStateToProps)(BasicInformation));

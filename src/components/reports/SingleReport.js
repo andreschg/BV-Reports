@@ -2,6 +2,7 @@ import React from 'react';
 import { Col, Row, Image } from 'react-bootstrap';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
+import queryString from 'query-string';
 import DataService from '../../services/dataService';
 import BasicInformation from './BasicInformation';
 import AnotherInformation from './AnotherInformation';
@@ -16,9 +17,9 @@ class SingleReport extends React.Component {
   }
 
   componentDidMount() {
-    //this.props.isNew = this.props.isNew ? this.props.isNew : true;
     if (this.props.isNew) {
-      DataService.getReportFromApi(this.props.match.params.email)
+      const { email } = queryString.parse(this.props.history.location.search);
+      DataService.getReportFromApi(email)
         .then((response) => {
           console.log(response);
           this.setState({
@@ -64,4 +65,4 @@ const mapStateToProps = (state) => ({
   username: state.user.email
 });
 
-export default connect(mapStateToProps)(withRouter(SingleReport));
+export default withRouter(connect(mapStateToProps)(SingleReport));
