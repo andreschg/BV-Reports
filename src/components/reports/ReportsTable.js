@@ -49,4 +49,4 @@ const mapStateToProps = (state) => ({
   username: state.user.email
 });
 
-export default connect(mapStateToProps)(withRouter(ReportsTable));
+export default withRouter(connect(mapStateToProps)(ReportsTable));
