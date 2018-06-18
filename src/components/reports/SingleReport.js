@@ -44,10 +44,10 @@ class SingleReport extends React.Component {
       <div>
         {this.state.data ? (
           <div>
-            <Col md={3}>
+            <Col md={3} sm={4}>
               <BasicInformation data={this.state.data} isNew={this.props.isNew}/>
             </Col>
-            <Col md={9}>
+            <Col md={9} sm={8}>
               <AnotherInformation data={this.state.data} />
             </Col>
           </div>
