@@ -26,14 +26,14 @@ class ReportsTable extends React.Component {
           </thead>
           <tbody>
             { DataService.getReports(this.props.username).map((element, index) => (
-              <tr>
+              <tr key={`report-${index}`}>
                 <td>{ index + 1 }</td>
                 <td>{ element.names[0].full }</td>
                 <td>{ element.emails[0].email_address }</td>
                 <td>
-                  <DropdownButton title="Options">
-                    <MenuItem onClick={this.onDetailsClick(index)} evenKey="">Details</MenuItem>
-                    <MenuItem evenKey="2">Delete</MenuItem>
+                  <DropdownButton title="Options" id={`report-${index}-options`}>
+                    <MenuItem onClick={this.onDetailsClick(index)} eventKey="1">Details</MenuItem>
+                    <MenuItem eventKey="2">Delete</MenuItem>
                   </DropdownButton>
                 </td>
               </tr>
