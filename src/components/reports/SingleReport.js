@@ -16,7 +16,7 @@ class SingleReport extends React.Component {
 
   componentDidMount() {
     if (this.props.isNew) {
-      DataService.getReportFromApi('skip.suva@gmail.com')
+      DataService.getReportFromApi(this.props.match.params.email)
         .then((response) => {
           console.log(response);
           this.setState({
