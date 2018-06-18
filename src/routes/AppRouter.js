@@ -18,6 +18,9 @@ const AppRouter = () => (
             <PrivateRoute path="/generate-report" component={() => (
               <SingleReport isNew={true} />
             )} />
+            <PrivateRoute path="/report/:id" component={() => (
+              <SingleReport isNew={false} />
+            )} />
           </Switch>
         </Grid>
       </div>

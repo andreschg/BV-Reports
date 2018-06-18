@@ -1,5 +1,6 @@
 import React from 'react';
 import { Navbar, Nav, NavItem  } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 import UserOptions from './UserOption';
 import { connect } from 'react-redux';
 
@@ -7,7 +8,7 @@ const BVNavigation = (props) => (
   <Navbar>
     <Navbar.Header>
       <Navbar.Brand>
-        <a href="">BV-Reports</a>
+        <Link to="/">BV-Reports</Link>
       </Navbar.Brand>
     </Navbar.Header>
     { props.isAuthenticated && <UserOptions userName={props.userName} /> }
