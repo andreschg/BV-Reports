@@ -3,6 +3,7 @@ $icon-font-path: "~bootstrap-sass/assets/fonts/bootstrap/";
 
 @import '../../node_modules/font-awesome/css/font-awesome.min.css';
 @import './base/variables';
+@import './base/base';
 @import './components/nav';
 @import './components/forms';
 @import './components/buttons';

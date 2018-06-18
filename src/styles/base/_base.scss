@@ -1,0 +1,36 @@
+.app-body {
+  h3 {
+    font-size: 18px;
+    margin: 10px 0;
+  }
+
+  .panel-heading {
+    color: $white;
+    background-color: $black;
+    border-bottom: 2px solid $green;
+  }
+
+  .green-underline {
+    border-bottom: 2px solid $green;
+  }
+}
+
+.ul-list {
+  padding-left: 15px;
+
+  li {
+    position: relative;
+    list-style: none;
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: 30%;
+      left: -12px;
+      background-color: $green;
+      height: 6px;
+      width: 6px;
+      border-radius: 100%;
+    }
+  }
+}
