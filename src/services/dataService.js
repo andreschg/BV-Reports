@@ -18,9 +18,7 @@ export default class DataService {
   });
   
   static getReports(username) {
-    console.log(username);
     const user = JSON.parse(localStorage.getItem(username));
-    console.log(user);
     return user.reports;
   }
 

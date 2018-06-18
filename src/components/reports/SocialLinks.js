@@ -23,7 +23,7 @@ const SocialLinks = ({ social }) => {
       <Panel.Body>
         <div>
           {social.map((element, index) => (
-            <Col md={2}>
+            <Col key={`social-${index}`} md={2}>
               <a className="social-link" href={element.url} target="_blank"><i className={logoClass(element.type)}></i></a>
             </Col>
           ))}
