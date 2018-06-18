@@ -18,7 +18,7 @@ class ReportsGeneratorForm extends React.Component {
 
   onSubmit = (e) => {
     e.preventDefault();
-    this.props.history.push(`generate-report?email=${this.state.email}`);
+    this.props.history.push(`generate-report/${this.state.email}`);
   }
   
   render() {

@@ -6,12 +6,13 @@ import DataService from '../../services/dataService';
 import BasicInformation from './BasicInformation';
 import AnotherInformation from './AnotherInformation';
 import LoaderModal from '../LoaderModal';
+import ErrorMessage from '../ErrorMessage';
 
 class SingleReport extends React.Component {
 
   constructor(props) {
     super(props);
-    this.state = { data: null };
+    this.state = { data: null, error: false };
   }
 
   componentDidMount() {
@@ -22,7 +23,10 @@ class SingleReport extends React.Component {
           this.setState({
             data:  response.data
           });     
-      });
+        })
+        .catch((error) => {
+          this.setState( { error: true });
+        });
     } else {
       DataService.getReportFromStorage(this.props.username, this.props.match.params.id)
         .then((response) => {
@@ -45,7 +49,9 @@ class SingleReport extends React.Component {
               <AnotherInformation data={this.state.data} />
             </Col>
           </div>
-          ) : (
+          ) : this.state.error ? (
+            <ErrorMessage />
+          ): (
             <LoaderModal show={true} />
           ) }
       </div>
