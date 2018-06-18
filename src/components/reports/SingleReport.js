@@ -12,7 +12,7 @@ class SingleReport extends React.Component {
   }
 
   componentDidMount() {
-    DataService.getReport('skip.suva@gmail.com')
+    DataService.getReportFromApi('skip.suva@gmail.com')
       .then((response) => {
         console.log(response);
         this.setState({
@@ -27,7 +27,7 @@ class SingleReport extends React.Component {
         {this.state.data ? (
           <div>
             <Col md={3}>
-              <BasicInformation data={this.state.data} />
+              <BasicInformation data={this.state.data} isNew={this.props.isNew}/>
             </Col>
             <Col md={9}>
               <AnotherInformation data={this.state.data} />

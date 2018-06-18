@@ -15,7 +15,9 @@ const AppRouter = () => (
         <Grid md={12} >
           <Switch>
             <PrivateRoute path="/" component={Dashboard} exact={true}/>
-            <PrivateRoute path="/report" component={SingleReport} />
+            <PrivateRoute path="/generate-report" component={() => (
+              <SingleReport isNew={true} />
+            )} />
           </Switch>
         </Grid>
       </div>

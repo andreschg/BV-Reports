@@ -45,4 +45,8 @@ export default class UserService {
     
   }
 
+  static saveReport(user,report) {
+
+  }
+
 }

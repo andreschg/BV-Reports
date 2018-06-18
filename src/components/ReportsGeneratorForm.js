@@ -18,7 +18,7 @@ class ReportsGeneratorForm extends React.Component {
 
   onClick = (e) => {
     e.preventDefault();
-    this.props.history.push(`report?email=${this.state.email}`);
+    this.props.history.push(`generate-report?email=${this.state.email}`);
   }
   
   render() {
@@ -26,7 +26,7 @@ class ReportsGeneratorForm extends React.Component {
         <FormGroup>
           <InputGroup>
             <InputGroup.Button>
-              <Button onClick={this.onClick}>Generate Report</Button>
+              <Button type="submit" onClick={this.onClick}>Generate Report</Button>
             </InputGroup.Button>
             <FormControl 
               type="email" 
