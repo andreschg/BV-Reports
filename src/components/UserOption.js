@@ -14,7 +14,7 @@ class UserOptions extends React.Component {
 
   render() {
     return  (
-      <Nav pullRight>
+      <Nav className="navbar-user-options" pullRight>
         <NavDropdown eventKey={3} title={this.props.userName} id="basic-nav-dropdown">
           <MenuItem eventKey={3.1} onClick={this.onClick}>Logout</MenuItem>
         </NavDropdown>

@@ -1,0 +1,13 @@
+.navbar {
+  border-bottom: 4px solid $green;
+
+  &.navbar-bv {
+    background-color: $black;
+    border-radius: 0;
+
+    .navbar-brand,
+    .dropdown-toggle {
+      color: $white;
+    } 
+  }
+}

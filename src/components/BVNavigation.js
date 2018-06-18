@@ -5,7 +5,7 @@ import UserOptions from './UserOption';
 import { connect } from 'react-redux';
 
 const BVNavigation = (props) => (
-  <Navbar>
+  <Navbar inverse className="navbar-bv">
     <Navbar.Header>
       <Navbar.Brand>
         <Link to="/">BV-Reports</Link>

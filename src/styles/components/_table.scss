@@ -1,0 +1,15 @@
+.reports-table {
+
+  margin-bottom: 75px;
+
+  thead {
+    background-color: $black;
+    color: $white;
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+
+    tr > th {
+      border-bottom: 2px solid $green;
+    }
+  }
+}

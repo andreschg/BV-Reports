@@ -15,7 +15,7 @@ class ReportsTable extends React.Component {
   render() {
     return (
       <div>
-        <Table>
+        <Table className="reports-table" responsive striped >
           <thead>
             <tr>
               <th>#</th>
@@ -31,7 +31,7 @@ class ReportsTable extends React.Component {
                 <td>{ element.names[0].full }</td>
                 <td>{ element.emails[0].email_address }</td>
                 <td>
-                  <DropdownButton title="Options" id={`report-${index}-options`}>
+                  <DropdownButton bsStyle="success" title="Options" id={`report-${index}-options`}>
                     <MenuItem onClick={this.onDetailsClick(index)} eventKey="1">Details</MenuItem>
                     <MenuItem eventKey="2">Delete</MenuItem>
                   </DropdownButton>

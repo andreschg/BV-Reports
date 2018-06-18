@@ -1,5 +1,9 @@
 .login-panel {
 
+  .panel-heading {
+    background-color: $black;
+  }
+
   .form-error-msg {
     text-align: center;
     color: $red;

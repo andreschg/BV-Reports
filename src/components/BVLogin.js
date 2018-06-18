@@ -3,7 +3,6 @@ import { Grid, Row, Col, Panel } from 'react-bootstrap';
 
 import LoginForm from './LoginForm';
 import RegisterForm from './RegisterForm';
-//import '../scripts/login-register';
 
 class BVLogin extends React.Component {
 
@@ -11,7 +10,7 @@ class BVLogin extends React.Component {
     $("#login-form").delay(100).fadeIn(100);
     $("#register-form").fadeOut(100);
     $('#register-form-link').removeClass('active');
-    $(this).addClass('active');
+    $('#login-form-link').addClass('active');
     e.preventDefault();
   }
 
@@ -19,7 +18,7 @@ class BVLogin extends React.Component {
     $("#register-form").delay(100).fadeIn(100);
     $("#login-form").fadeOut(100);
     $('#login-form-link').removeClass('active');
-    $(this).addClass('active');
+    $('#register-form-link').addClass('active');
     e.preventDefault();
   }
 
@@ -32,7 +31,7 @@ class BVLogin extends React.Component {
               <Panel.Heading>
                 <Row>
                   <Col md={6}>
-                    <a onClick={this.onClickLogin} id="login-form-link">Login</a>
+                    <a onClick={this.onClickLogin} id="login-form-link" className="active">Login</a>
                   </Col>
                   <Col md={6}>
                     <a onClick={this.onClickRegister} id="register-form-link">Register</a>

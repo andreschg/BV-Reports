@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
-import 'bootstrap';
+import 'bootstrap-sass';
 import AppRouter from './routes/AppRouter';
 import BVLogin from './components/BVLogin';
 import store from './store/configureStore';
