@@ -3,6 +3,7 @@ import { Col, Row, Image } from 'react-bootstrap';
 import DataService from '../../services/dataService';
 import BasicInformation from './BasicInformation';
 import AnotherInformation from './AnotherInformation';
+import LoaderModal from '../LoaderModal';
 
 class SingleReport extends React.Component {
 
@@ -34,7 +35,7 @@ class SingleReport extends React.Component {
             </Col>
           </div>
           ) : (
-            <p>Loading...</p>
+            <LoaderModal show={true} />
           ) }
       </div>
     )
