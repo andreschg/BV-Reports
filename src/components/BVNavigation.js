@@ -16,7 +16,7 @@ const BVNavigation = (props) => (
 );
 
 const mapStateToProps = (state) => ({
-  isAuthenticated: !!state.user.email && !!state.user.password,
+  isAuthenticated: !!state.user,
   userName: state.user.name
 });
 
