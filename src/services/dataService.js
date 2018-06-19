@@ -1,13 +1,23 @@
 import axios from 'axios';
 
 const apiUrl = "http://www.beenverified.com/hk/dd/email";
+const proxyUrl = `https://cors-anywhere.herokuapp.com/${apiUrl}`;
 
 export default class DataService {
 
-
-
   static getReportFromApi(email) {
-    return axios.get(`${apiUrl}?email=${email}`);
+    return axios({
+      method: 'GET',
+      url: `${proxyUrl}?email=${email}`,
+      withCredentials: false,
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json',
+        'Origin': '*',
+        'Access-Control-Allow-Headers': '*',
+        'Access-Control-Allow-Origin': '*',
+      }
+    });
   }
 
   static getReportFromStorage = (username, id) => 

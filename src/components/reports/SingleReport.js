@@ -21,7 +21,6 @@ class SingleReport extends React.Component {
       const { email } = queryString.parse(this.props.history.location.search);
       DataService.getReportFromApi(email)
         .then((response) => {
-          console.log(response);
           this.setState({
             data:  response.data
           });     
