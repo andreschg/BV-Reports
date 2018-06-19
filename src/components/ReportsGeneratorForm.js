@@ -30,7 +30,7 @@ class ReportsGeneratorForm extends React.Component {
         <FormGroup>
           <InputGroup>
             <InputGroup.Button>
-              <Button bsStyle="success">Generate Report</Button>
+              <Button type="submit" bsStyle="success">Generate Report</Button>
             </InputGroup.Button>
             <FormControl 
               type="email" 

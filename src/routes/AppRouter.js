@@ -6,6 +6,7 @@ import BVNavigation from '../components/BVNavigation';
 import Dashboard from '../components/Dashboard';
 import PrivateRoute from './PrivateRoute';
 import SingleReport from '../components/reports/SingleReport';
+import NotFoundPage from '../components/NotFoundPage';
 
 const AppRouter = () => (
   <BrowserRouter>
@@ -21,6 +22,7 @@ const AppRouter = () => (
             <PrivateRoute path="/report/:id" component={() => (
               <SingleReport isNew={false} />
             )} />
+            <Route component={NotFoundPage} />
           </Switch>
         </Grid>
       </div>
