@@ -28,10 +28,8 @@ class ReportsTable extends React.Component {
     });
   }
    
-  onDetailsClick = (index) => {
-    return (e) => {
-      this.props.history.push(`/report/${index}`);
-    }
+  onDetailsClick = (index) => (e) => {
+    this.props.history.push(`/report/${index}`);
   }
 
   onDeleteClick = (index) => (e) => {
