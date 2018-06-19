@@ -3,7 +3,7 @@
 Is a single page app that allows a user to log in, run some reports, and store them in the browser's local storage
 
 ## Getting Started
-### Installing
+### Install dependencies
 Run:
 ```
 npm install
