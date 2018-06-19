@@ -1,5 +1,5 @@
 import React from 'react';
-import { Modal, Col, Row, Grid } from 'react-bootstrap';
+import { Modal, Col, Row } from 'react-bootstrap';
 
 const LoaderModal = (props) => (
   <Modal className="loader-modal" show={props.show} bsSize="large">

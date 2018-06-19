@@ -27,4 +27,10 @@ export default class DataService {
     user.reports = user.reports.concat(data);
     localStorage.setItem(username, JSON.stringify(user));
   }
+
+  static removeReport(username, reportId) {
+    const user = JSON.parse(localStorage.getItem(username));
+    user.reports = user.reports.filter((element, index) => index !== reportId);
+    localStorage.setItem(username, JSON.stringify(user));
+  }
 }

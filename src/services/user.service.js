@@ -37,7 +37,7 @@ export default class UserService {
       if (account && current.password === account.password) {
         return {
           email: current.email,
-          ...account
+          name: account.name
         }
       }
     }

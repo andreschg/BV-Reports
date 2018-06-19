@@ -3,18 +3,66 @@ import { Table, DropdownButton, MenuItem } from 'react-bootstrap';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import DataService from '../../services/dataService';
+import RemoveReportModal from './RemoveReportModal';
+import LoaderModal from '../LoaderModal';
 
 class ReportsTable extends React.Component {
-  
+
+  constructor(props) {
+    super(props);
+    this.state = {
+      reportSelected: 0,
+      showRemoveModal: false,
+      reports: []
+    }
+  }
+
+  componentDidMount() {
+    this.updateReports();
+  }
+
+  updateReports = () => {
+    const reports = DataService.getReports(this.props.username);
+    this.setState({
+      reports
+    });
+  }
+   
   onDetailsClick = (index) => {
     return (e) => {
       this.props.history.push(`/report/${index}`);
     }
   }
+
+  onDeleteClick = (index) => (e) => {
+    this.setState({
+      showRemoveModal: true,
+      reportSelected: index
+    });
+  }
+
+  handleCloseModal = () => {
+    this.setState({
+      showRemoveModal: false
+    });
+  }
+
+  handleRemove = () => {
+    DataService.removeReport(this.props.username, this.state.reportSelected);
+    this.updateReports();
+    this.setState({
+      showRemoveModal: false
+    })
+  }
   
   render() {
     return (
       <div>
+        <RemoveReportModal 
+          reportId={this.state.reportSelected + 1} 
+          show={this.state.showRemoveModal} 
+          handleClose={this.handleCloseModal}
+          handleRemove={this.handleRemove} />
         <Table className="reports-table" responsive striped >
           <thead>
             <tr>
@@ -25,7 +73,7 @@ class ReportsTable extends React.Component {
             </tr>
           </thead>
           <tbody>
-            { DataService.getReports(this.props.username).map((element, index) => (
+            { this.state.reports.map((element, index) => (
               <tr key={`report-${index}`}>
                 <td>{ index + 1 }</td>
                 <td>{ element.names[0].full }</td>
@@ -33,7 +81,7 @@ class ReportsTable extends React.Component {
                 <td>
                   <DropdownButton bsStyle="success" title="Options" id={`report-${index}-options`}>
                     <MenuItem onClick={this.onDetailsClick(index)} eventKey="1">Details</MenuItem>
-                    <MenuItem eventKey="2">Delete</MenuItem>
+                    <MenuItem onClick={this.onDeleteClick(index)}  eventKey="2">Delete</MenuItem>
                   </DropdownButton>
                 </td>
               </tr>
