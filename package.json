@@ -6,7 +6,8 @@
   "license": "MIT",
   "scripts": {
     "build": "webpack",
-    "start": "webpack-dev-server"
+    "start": "node server/server.js",
+    "dev-server": "webpack-dev-server"
   },
   "devDependencies": {
     "babel": "^6.23.0",
@@ -33,6 +34,7 @@
     "axios": "^0.18.0",
     "bootstrap-sass": "^3.3.7",
     "email-validator": "^2.0.4",
+    "express": "^4.16.3",
     "font-awesome": "^4.7.0",
     "jquery": "^3.3.1",
     "moment": "^2.22.2",

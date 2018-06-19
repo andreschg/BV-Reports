@@ -1,5 +1,5 @@
 const userDefaultState = { 
-  user: {} 
+  user: null 
 };
 
 export default (state = userDefaultState, action) => {

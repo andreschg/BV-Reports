@@ -17,7 +17,7 @@ const BVNavigation = (props) => (
 
 const mapStateToProps = (state) => ({
   isAuthenticated: !!state.user,
-  userName: state.user.name
+  userName: !!state.user ? state.user.name : '' 
 });
 
 export default connect(mapStateToProps)(BVNavigation);
