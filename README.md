@@ -20,7 +20,7 @@ npm run dev-server
 yarn run dev-server
 ```
 
-Also, you can build the project first with webpack and then run a simple node server and access to localhost:3000.
+Also, you can build the project with webpack and then run a simple node server and access to localhost:3000.
 
 ```
 yarn build 
